@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+
+*, html {
+    border-spacing: border-box;
+    top: 0;
+    left: 0;
+}
+body {
+    width: 900px;
+    margin: 0 auto;
+}
+footer {
+    margin-top: 5px;
+}
+h2 {
+    display: none;
+}
+button {
+    margin: 5px;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sticker {
+    border: 3pt solid #000;
+    margin: 5px;
+    padding: 2px;
+    width: 400px;
+    flex-basis: 400px;
+    height: 100px;
+    overflow: hidden;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cookie', cursive;
+}
+p, h3 {
+    margin:1px;
+    display:block;
+}
+h3 {
+    font-weight: 400;
+    font-size: 26pt;
+}
+p {
+    font-size: 14pt;
+}
+footer p {
+    font-size: 10pt;
+}
+
+@media print {
+  h1, h2, button {
+    display:none;
+  }
+}
