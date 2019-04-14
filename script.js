@@ -1,5 +1,39 @@
 let date = new Date();
-let monthYear = `${date.getMonth()} ${date.getYear()}`;
+let monthYear = `${date.getMonth() + 1} / ${date.getFullYear()}`;
+
+function createElWithText(e, t) {
+  let el = document.createElement(e);
+  let elText = document.createTextNode(t);
+  el.appendChild(elText);
+  return el;
+}
+
+function createSingleSticker(title, date, ingreds) {
+  const sticker = document.createElement("div");
+  sticker.setAttribute("class", "sticker");
+
+  const h3 = createElWithText("h3", title);
+  const p1 = createElWithText("p", ingreds);
+  const p2 = createElWithText("p", date);
+
+  sticker.appendChild(h3);
+  sticker.appendChild(p1);
+  sticker.appendChild(p2);
+
+  return sticker;
+}
+
+function createStickers(n, title, date, ingreds) {
+  const container = document.getElementById('container')
+
+  for(i = 0; i < n; i++) {
+      container.appendChild(createSingleSticker(title, date, ingreds));
+  }
+}
+
+function createFrom(form) {
+  console.log("Fun called");
+}
 
 function ask() {
     let title = prompt('Title (e.g. "Strawberries")');
@@ -15,34 +49,5 @@ function ask() {
         return;
     }
 
-    let stickerText = '<div class="sticker">'
-                    + `<h3>${title}</h3>`
-                    + `<p>${ingreds}</p>`
-                    + `<p>${date}</p>`
-                    + '</div>';
-
-    const container = document.getElementById('container')
-
-    for(i = 0; i < n; i++) {
-        let sticker = document.createElement("div");
-        sticker.setAttribute("class", "sticker");
-
-        let h3 = document.createElement("h3");
-        let h3Text = document.createTextNode(title);
-        h3.appendChild(h3Text);
-
-        let p1 = document.createElement("p");
-        let p1Text = document.createTextNode(ingreds);
-        p1.appendChild(p1Text);
-
-        let p2 = document.createElement("p");
-        let p2Text = document.createTextNode(date);
-        p2.appendChild(p2Text);
-
-        sticker.appendChild(h3);
-        sticker.appendChild(p1);
-        sticker.appendChild(p2);
-
-        container.appendChild(sticker);
-    }
+    createStickers(n, title, date, ingreds);
 }

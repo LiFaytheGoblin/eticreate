@@ -13,14 +13,37 @@
         <header>
             <h1>Eticreate</h1>
         </header>
-        <section>
-            <h2>Create</h2>
-            <button onclick="ask()">Create a bunch of stickers!</button>
+        <section class="action-menu">
+          <section class="subsection">
+              <h2>Create</h2>
+              <form name="create" id="form-create" action=""  method="get">
+                Make
+                <label for="n">Amount of Stickers</label>
+                <input type="number" name="n" value="3" class="input-small">
+                Stickers
+                for my
+                <label for="title">Title</label>
+                <input type="text" name="title" value="Bery Jam" autocomplete="on">,
+
+                made in
+                <label for="date">Date</label>
+                <input type="text" name="date" value="January 2019" autocomplete="on">
+
+                with
+                <label for="ingreds">Ingredients</label>
+                <input type="text" name="ingreds" value="Strawberries, Blueberries" autocomplete="on" class="input-large">
+
+
+
+                <input type="button" name="button-create" form="form-create" value="Create" onclick="createFrom(this.form)">
+              </form>
+          </section>
+          <section class="subsection">
+              <h2>Print</h2>
+              <button name="print" onclick="print()">Print</button>
+          </section>
         </section>
-        <section>
-            <h2>Print</h2>
-            <button onclick="window.print()">Print</button>
-        </section>
+
         <section>
             <h2>Created Stickers</h2>
             <div id="container" class="container">
