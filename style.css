@@ -19,6 +19,11 @@ section.action-menu, section.action-menu > .subsection {
 section .subsection {
   display: inline;
 }
+footer {
+    margin-top: 5px;
+    color: #999;
+}
+
 label {
   display: none;
 }
@@ -31,37 +36,12 @@ input[type="text"].input-large {
 input[type="number"] {
   width:31px;
 }
-footer {
-    margin-top: 5px;
-}
-h2 {
-    display: none;
-}
 button, input[type="button"] {
     margin: 5px;
 }
-#container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
-.sticker {
-    border: 3pt solid #000;
-    margin: 5px;
-    padding: 2px;
-    width: 400px;
-    flex-basis: 400px;
-    height: 100px;
-    overflow: hidden;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cookie', cursive;
+h2 {
+    display: none;
 }
 p, h3 {
     margin:1px;
@@ -78,14 +58,48 @@ footer p {
     font-size: 10pt;
 }
 
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.sticker {
+    border: 3pt solid #000;
+    margin: 5px;
+    padding: 2px;
+    width: 400px;
+    flex-basis: 400px;
+    height: 100px;
+    overflow: hidden;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cookie', cursive;
+}
+.only-print {
+  display: none;
+}
+
 @media print {
-  h1, h2, button {
+  h1, h2, button, section.action-menu, footer {
     display:none;
+  }
+  footer p {
+    font-size: 9pt;
   }
 }
 
 @media (max-width: 899px) {
   body {
-    width: 100%;
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  h1 {
+    text-align: center;
   }
 }
