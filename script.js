@@ -1,10 +1,8 @@
-let date = new Date();
-let monthYear = `${date.getMonth() + 1} / ${date.getFullYear()}`;
-
 function createElWithText(e, t) {
-  let el = document.createElement(e);
-  let elText = document.createTextNode(t);
+  const el = document.createElement(e);
+  const elText = document.createTextNode(t);
   el.appendChild(elText);
+
   return el;
 }
 
@@ -32,22 +30,5 @@ function createStickers(n, title, date, ingreds) {
 }
 
 function createFrom(form) {
-  console.log("Fun called");
-}
-
-function ask() {
-    let title = prompt('Title (e.g. "Strawberries")');
-    if (title === "") {
-        alert("Not a valid title!")
-        return;
-    }
-    let date = prompt(`Date (e.g. "${monthYear}")`);
-    let ingreds = prompt('Ingredients (e.g. "Strawberries, Vanilla, Rum")')
-    let n = prompt('Amount of Stickers (e.g. "3")')
-    if (isNaN(n) || n < 1) {
-        alert("Not a valid amount!")
-        return;
-    }
-
-    createStickers(n, title, date, ingreds);
+  createStickers(form.n.value, form.title.value, form.date.value, form.ingreds.value);
 }
